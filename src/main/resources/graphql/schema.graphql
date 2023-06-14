@@ -1,0 +1,207 @@
+type Query {
+  individual: Individual
+  intelligence: Intelligence
+}
+
+type Individual {
+  hits: Int
+  firstCursor: String
+  lastCursor: String
+  results: [IndividualResult]
+}
+
+type IndividualResult {
+  id: String
+  productURLs: [IndividualProductURL]
+  fullName: String
+  roles: [Role]
+  address: Address
+
+}
+
+type IndividualProductURL {
+  wealthmonitor: String
+}
+
+type Address {
+  id: ID
+  country: IndividualCountry
+}
+
+type IndividualCountry {
+  mmgid: ID
+  name: String
+}
+
+type Role {
+  mmgid: String
+  name: String
+  company: Company
+  stake: Float
+}
+
+type Company {
+  mmgid: String
+  name: String
+}
+
+type Intelligence {
+  hits: Int
+  results: [Result]
+}
+
+type Result {
+  body: String
+  companyRelationshipGroups: [CompanyRelationshipGroup]
+  contentClassification: ContentClassification
+  countries: [Country]
+  dominantCountry: DominantCountry
+  dominantSector: DominantSector
+  dominantState: DominantState
+  geographies: Geographies
+  grade: String
+  headline: String
+  intelligenceTypes: [IntelligenceType]
+  isProprietary: Boolean
+  lastModifiedDate: String
+  mmgid: String
+  municipalsSectors: [MunicipalsSector]
+  productAttributes: ProductAttributes
+  publicSources: [PublicSource]
+  publishDate: String
+  sectors: [Sector]
+  topics: [Topic]
+  productEditions: [ProductEdition]
+  productURLs: [ProductURL]
+}
+
+type Area {
+  mmgid: String
+  name: String
+  regions: [Region]
+}
+
+type CompanyRelationshipGroup {
+  issuers: [Issuer]
+  obligors: [Obligor]
+}
+
+type ContentClassification {
+  contentCategory: String
+}
+
+type Country {
+  mmgid: String
+  name: String
+  isDominant: Boolean
+  states: [State]
+}
+
+type Debtwire {
+  contentCategories: [String]
+}
+
+type DominantCountry {
+  mmgid: String
+  name: String
+}
+
+type DominantSector {
+  mmgid: String
+  name: String
+}
+
+type DominantState {
+  mmgid: String
+  name: String
+}
+
+type Geographies {
+  areas: [Area]
+}
+
+type IntelligenceType {
+  mmgid: String
+  name: String
+  subtypes: [Subtype]
+}
+
+type Issuer {
+  mmgid: String
+  name: String
+  ownershipType: OwnershipType
+}
+
+type MunicipalsSector {
+  mmgid: String
+  name: String
+  subsectors: [Subsector]
+}
+
+type Obligor {
+  mmgid: String
+  name: String
+  ownershipType: OwnershipType
+}
+
+type OwnershipType {
+  mmgid: String
+  name: String
+}
+
+type ProductAttributes {
+  debtwire: Debtwire
+}
+
+type ProductEdition {
+  edition: String
+  id: String
+  product: String
+}
+
+type ProductURL {
+  product: String
+  url: String
+}
+
+type PublicSource {
+  mmgid: String
+  name: String
+  sourceNumber: Int
+}
+
+type Region {
+  countries: [Country]
+  mmgid: String
+  name: String
+}
+
+type Sector {
+  mmgid: String
+  name: String
+  subsectors: [Subsector]
+}
+
+type State {
+  isDominant: Boolean
+  mmgid: String
+  name: String
+}
+
+type Subsector {
+  mmgid: String
+  name: String
+}
+
+type Subtype {
+  mmgid: String
+  name: String
+}
+
+type Topic {
+  groupcode: String
+  mmgid: String
+  name: String
+}
+
+
