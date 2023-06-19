@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+
+package "UI" {
+  HTTP - [Client360 Search]
+}
+
+node "Backend App" {
+   [Graphql]
+   [SpringBoot]
+}
+
+node "ION Analytics API" {
+  [Individual API]
+  [Intelligence API]
+}
+
+node "LinkedIn" {
+  [LinkedIn Profiles]
+}
+
+
+[Client360 Search] ---> [Graphql]
+[Graphql] -> [SpringBoot]
+[SpringBoot] ---> [Intelligence API]
+[SpringBoot] ---> [Individual API]
+[Client360 Search] ---> [LinkedIn Profiles]
+
+@enduml
