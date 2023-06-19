@@ -20,11 +20,15 @@ node "LinkedIn" {
   [LinkedIn Profiles]
 }
 
+node "Other Sources" {
+  [Others]
+}
+
 
 [Client360 Search] ---> [Graphql]
 [Graphql] -> [SpringBoot]
 [SpringBoot] ---> [Intelligence API]
 [SpringBoot] ---> [Individual API]
-[Client360 Search] ---> [LinkedIn Profiles]
-
+[Client360 Search] ----> [LinkedIn Profiles]
+[Client360 Search] --> [Others]
 @enduml
