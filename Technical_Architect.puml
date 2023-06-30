@@ -16,12 +16,23 @@ node "ION Analytics API" {
   [Intelligence API]
 }
 
-node "LinkedIn" {
-  [LinkedIn Profiles]
-}
 
 node "Other Sources" {
-  [Others]
+  [LinkedIn Profiles]
+  [Sales Force]
+  [Kimble]
+  [Email Communication]
+}
+
+node "Search" {
+  Crawler - [Selenium/BeautifulSoup]
+  [Client360 Search] ----->Crawler
+}
+
+database "Postgres" {
+frame "client360" {
+    [Data]
+  }
 }
 
 
@@ -29,6 +40,9 @@ node "Other Sources" {
 [Graphql] -> [SpringBoot]
 [SpringBoot] ---> [Intelligence API]
 [SpringBoot] ---> [Individual API]
-[Client360 Search] ----> [LinkedIn Profiles]
-[Client360 Search] --> [Others]
+[Selenium/BeautifulSoup] -----> [LinkedIn Profiles]
+[Selenium/BeautifulSoup] -----> [Sales Force]
+[Selenium/BeautifulSoup] -----> [Kimble]
+[Selenium/BeautifulSoup] -----> [Email Communication]
+[Client360 Search] -> [Data]
 @enduml
